@@ -8,10 +8,11 @@
             Text="Loading page"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button Text="Next" Command="{Binding NextButtonPressedCommand}" />
+        <Button Text="Next" Command="{Binding NextButtonPressedCommand}" Margin="10" />
 
 
 
-        <Button Text="Scenario 2" Command="{Binding Scenario2ButtonPressedCommand}" />
+        <Button Text="Scenario 2" Command="{Binding Scenario2ButtonPressedCommand}"  Margin="10"/>
+        <Button Text="Image Error" Command="{Binding ImageErrorButtonPressedCommand}" Margin="10" />
     </VerticalStackLayout>
 </ContentPage>

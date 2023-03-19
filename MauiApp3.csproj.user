@@ -11,6 +11,9 @@
     <MauiXaml Update="Styles.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\ImageError.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\NewPage16.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.Views.ImageError"
+              xmlns:models="clr-namespace:MauiApp3"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+            Title="ImageError">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+
+       
+
+    </ContentPage.Resources>
+
+    <!-- Page Content -->
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Frame Padding="50,30,50,30" HasShadow="true" BackgroundColor="#80000000" Grid.Row="0" Grid.Column="0" IsVisible="{Binding Loading}" VerticalOptions="Center" HorizontalOptions="Center">
+                <ActivityIndicator Color="White" VerticalOptions="Center" HorizontalOptions="Center" x:Name="actInd" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" IsEnabled="{Binding Loading}" />
+            </Frame>
+
+            <!-- Top of page current user status section -->
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource LightBorder}, Dark={StaticResource DarkBorder}}" Margin="5" Padding="10" Grid.Row="0"
+                    HorizontalOptions="FillAndExpand">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15,15,15,15" />
+                </Border.StrokeShape>
+
+                <Grid VerticalOptions="Center" HorizontalOptions="FillAndExpand" x:Name="Header">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Margin="0,0,12,0" Source="{Binding ProfileImageThumbnail}" WidthRequest="50" HeightRequest="50" 
+                           Aspect="AspectFit" HorizontalOptions="Start">
+                        <Image.Clip>
+                            <EllipseGeometry RadiusX="18" RadiusY="18" Center="25,25" />
+                        </Image.Clip>
+                        <Image.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Radius="4" Opacity="0.9"/>
+                        </Image.Shadow>
+                    </Image>
+
+                    <Button Grid.Row="0" Grid.Column="1" Text="Post" Command="{Binding ShowPostSheetPressedCommand}" HorizontalOptions="CenterAndExpand" 
+                            VerticalOptions="Center" CornerRadius="15" Margin="7,0,0,0" FontSize="15" 
+                            BackgroundColor="{AppThemeBinding Light={StaticResource PostLight}, Dark={StaticResource AccentColor}}">
+                    </Button>
+
+                    <Image Grid.Row="0" Grid.Column="3" VerticalOptions="Center" HorizontalOptions="End" Margin="12,0,0,0" Source="{Binding CurrentMoodImage}" WidthRequest="50" HeightRequest="50" 
+                           Aspect="AspectFit">
+                        <Image.Clip>
+                            <EllipseGeometry RadiusX="18" RadiusY="18" Center="25,25" />
+                        </Image.Clip>
+                    </Image>
+
+                </Grid>
+
+            </Border>
+
+            <!-- Feed Content Section -->
+            <CollectionView ItemsSource="{Binding Feed}" Grid.Row="1"
+                    VerticalScrollBarVisibility="Default" VerticalOptions="Fill" HorizontalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:FeedContentDTO">
+
+                        <Border Margin="5,0,5,0" Padding="5" BackgroundColor="{AppThemeBinding Light={StaticResource LightBorder}, Dark={StaticResource DarkBorder}}"
+                                        VerticalOptions="StartAndExpand">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="15,15,15,15"/>
+                            </Border.StrokeShape>
+                            <StackLayout>
+
+                                <!-- Post header -->
+                                <StackLayout Orientation="Horizontal" Padding="15, 10">
+                                    <Image  VerticalOptions="Center" Margin="0,0,0,0" 
+                                               Source="{Binding UserProfile.ProfileImageThumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToImage}}" WidthRequest="40" 
+                                               HeightRequest="40" Aspect="AspectFill" HorizontalOptions="Start">
+                                        <Image.Clip>
+                                            <EllipseGeometry RadiusX="18" RadiusY="18" Center="25,25" />
+                                        </Image.Clip>
+                                        <!--<Image.Shadow>
+                                          <Shadow Brush="Black" Offset="2,2" Radius="4" Opacity="0.9"/>
+                                        </Image.Shadow>-->
+                                    </Image>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="16" TextColor="DarkGray" Margin="10, 0" >
+                                            <Label.Text>
+                                                <MultiBinding StringFormat="{}{0} {1}">
+                                                    <Binding Path="UserProfile.FirstName"/>
+                                                    <Binding Path="UserProfile.LastName"/>
+                                                </MultiBinding>
+                                            </Label.Text>
+                                        </Label>
+                                        <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="14" TextColor="DarkGray" Margin="10, 0" >
+                                            <Label.Text>
+                                                <MultiBinding StringFormat="{}{0} at {1}">
+                                                    <Binding Path="UserProfile.JobTitle"/>
+                                                    <Binding Path="UserProfile.CompanyName"/>
+                                                </MultiBinding>
+                                            </Label.Text>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+
+
+                                <!-- Post Content -->
+                                <Label Style="{StaticResource Key=baseLabelStyle}"
+                                            Text="{Binding FeedContent}" FontSize="16" FontAttributes="Bold" Margin="20, 10"/>
+
+                                <CollectionView x:Name="FeedAttachmentListView" ItemsSource="{Binding FeedAttachments}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate x:DataType="models:FeedAttachmentDTO">
+                                            <Image Source="{Binding ImageData, Mode=OneWay, Converter={StaticResource ByteArrayToImage}}"  Aspect="AspectFill" Margin="10, 10"
+                                                          VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="300">
+                                                <Image.Shadow>
+                                                    <Shadow Brush="Black"  Offset="2,2" Radius="4" Opacity="0.9"/>
+                                                </Image.Shadow>
+                                            </Image>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
+
+                                <!-- Post Footer -->
+                                <Grid Margin="15,10,15,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label HorizontalOptions="Fill" Grid.Column="0" Style="{StaticResource Key=baseLabelStyle}" 
+                                                Text="Jon Doe and others like this" FontSize="12" TextColor="DarkGray"/>
+                                    <Label HorizontalOptions="End" Grid.Column="1" Style="{StaticResource Key=baseLabelStyle}" 
+                                                Text="10 comments" FontSize="12" TextColor="DarkGray"/>
+                                </Grid>
+
+
+                            </StackLayout>
+                        </Border>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

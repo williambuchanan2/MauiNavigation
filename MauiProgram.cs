@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Maui;
-using Java.Lang;
 using MauiApp3.ViewModels;
 using MauiApp3.Views;
 using Microsoft.Extensions.Logging;
@@ -132,5 +131,9 @@ public static class MauiProgram
         builder.Services.AddTransient<TabHvm>();
         builder.Services.AddTransient<TabH>();
         Routing.RegisterRoute(nameof(TabH), typeof(TabH));
+
+        builder.Services.AddTransient<ImageErrorVm>();
+        builder.Services.AddTransient<ImageError>();
+        Routing.RegisterRoute(nameof(ImageError), typeof(ImageError));
     }
 }

@@ -21,7 +21,12 @@ namespace MauiApp3.ViewModels
         [RelayCommand]
         private void Scenario2ButtonPressed()
         {
-             NavigationUtil.Navigate<NewPage2>();
+            NavigationUtil.Navigate<NewPage2>();
+        }
+        [RelayCommand]
+        private void ImageErrorButtonPressed()
+        {
+            NavigationUtil.Navigate<ImageError>();
         }
 
     }
