@@ -161,6 +161,9 @@
 	  <MauiXaml Update="Views\NewPage10.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ScrollViewIssue.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\SettA.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

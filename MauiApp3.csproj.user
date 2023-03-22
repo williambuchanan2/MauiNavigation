@@ -35,6 +35,9 @@
     <MauiXaml Update="Views\NewPage10.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\ScrollViewIssue.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\SettA.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

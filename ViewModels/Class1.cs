@@ -29,5 +29,18 @@ namespace MauiApp3.ViewModels
             NavigationUtil.Navigate<ImageError>();
         }
 
+        [RelayCommand]
+        private void ScrollViewProblemButtonPressed()
+        {
+            NavigationUtil.Navigate<ScrollViewIssue>();
+        }
+        [RelayCommand]
+        private void ImageInListButtonPressed()
+        {
+            NavigationUtil.Navigate<NewPage7>();
+        }
+        
+
+
     }
 }

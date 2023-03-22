@@ -14,5 +14,7 @@
 
         <Button Text="Scenario 2" Command="{Binding Scenario2ButtonPressedCommand}"  Margin="10"/>
         <Button Text="Image Error" Command="{Binding ImageErrorButtonPressedCommand}" Margin="10" />
+        <Button Text="Scroll View Problem" Command="{Binding ScrollViewProblemButtonPressedCommand}" Margin="10" />
+        <Button Text="Image In List Problem" Command="{Binding ImageInListButtonPressedCommand}" Margin="10" />
     </VerticalStackLayout>
 </ContentPage>

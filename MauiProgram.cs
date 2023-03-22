@@ -28,6 +28,10 @@ public static class MauiProgram
    
     public static void RegisterViews(MauiAppBuilder builder)
     {
+        builder.Services.AddTransient<ScrollViewIssue>();
+        Routing.RegisterRoute(nameof(ScrollViewIssue), typeof(ScrollViewIssue));
+
+
         builder.Services.AddTransient<Class1>();
         builder.Services.AddTransient<NewPage1>();
         Routing.RegisterRoute(nameof(NewPage1), typeof(NewPage1));
