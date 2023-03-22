@@ -23,6 +23,7 @@ namespace MauiApp3.ViewModels
         {
             NavigationUtil.Navigate<NewPage2>();
         }
+
         [RelayCommand]
         private void ImageErrorButtonPressed()
         {
@@ -34,12 +35,19 @@ namespace MauiApp3.ViewModels
         {
             NavigationUtil.Navigate<ScrollViewIssue>();
         }
+
         [RelayCommand]
         private void ImageInListButtonPressed()
         {
             NavigationUtil.Navigate<NewPage7>();
         }
-        
+
+        [RelayCommand]
+        private void AbsoluteLayoutButtonPressed()
+        {
+            NavigationUtil.Navigate<NewPage8>();
+        }
+
 
 
     }
