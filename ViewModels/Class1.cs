@@ -47,6 +47,11 @@ namespace MauiApp3.ViewModels
         {
             NavigationUtil.Navigate<NewPage8>();
         }
+        [RelayCommand]
+        private void KeyboardProblemButtonPressed()
+        {
+            NavigationUtil.Navigate<NewPage9>();
+        }
 
 
 
