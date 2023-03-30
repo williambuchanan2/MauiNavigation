@@ -14,4 +14,16 @@ public partial class TabG : ContentPage
         BindingContext = PageUtil.PageBindingContext;
     }
 
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+        DisplayAlert("Alert", "Navigated to Tab G", "OK");
+    }
+
+    protected override void OnAppearing()
+    {
+        // Put breakpoint here
+        base.OnAppearing();
+    }
+
 }

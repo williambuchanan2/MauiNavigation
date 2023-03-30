@@ -52,8 +52,13 @@ namespace MauiApp3.ViewModels
         {
             NavigationUtil.Navigate<NewPage9>();
         }
+        [RelayCommand]
+        private void NavToProblemButtonPressed()
+        {
+            AppShell.SwitchToMainShellItem();
+        }
 
-
+        
 
     }
 }

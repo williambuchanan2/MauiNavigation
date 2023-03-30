@@ -18,5 +18,6 @@
         <Button Text="Image In List Problem" Command="{Binding ImageInListButtonPressedCommand}" Margin="10" />
         <Button Text="Absolute Layout Problem" Command="{Binding AbsoluteLayoutButtonPressedCommand}" Margin="10" />
         <Button Text="Keyboard Problem" Command="{Binding KeyboardProblemButtonPressedCommand}" Margin="10" />
+        <Button Text="OnNavigatedTo Problem" Command="{Binding NavToProblemButtonPressedCommand}" Margin="10" />
     </VerticalStackLayout>
 </ContentPage>
