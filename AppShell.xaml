@@ -29,7 +29,7 @@
         </Tab>
 
         <!--Split tab for friends page-->
-        <Tab Title="Friends">
+        <Tab Title="NavIssue">
             <ShellContent Title="Tab F" ContentTemplate="{DataTemplate views:TabF}" Route="TabF"/>
             <ShellContent Title="Tab G" ContentTemplate="{DataTemplate views:TabG}" Route="TabG"/>
             <ShellContent Title="Tab H" ContentTemplate="{DataTemplate views:TabH}" Route="TabH"/>
