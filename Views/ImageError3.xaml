@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.Views.ImageError3"
+              xmlns:models="clr-namespace:MauiApp3"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+            Title="ImageError2">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:IsStringNullOrEmptyConverter x:Key="IsStringNullOrEmptyConverter" />
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Margin="10, 50, 10, 10">
+                <!-- Need a big top margin due to iOS layout issues -->
+
+
+
+                <!-- Security header -->
+                <Grid Background="transparent" HeightRequest="35" VerticalOptions="Start" Padding="15,0,15,0" HorizontalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="security_settings.png" Grid.Column="0" Margin="0,0,15,0"/>
+                    <Label Text="Security"   Grid.Column="1"/>
+                </Grid>
+
+                <!-- Security -->
+                <Border >
+                    <Grid VerticalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label  Padding="10" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" Text="Password" />
+
+                        <ImageButton Grid.Row="0"  Grid.Column="1" Source="edit.png" Aspect="AspectFit" WidthRequest="16" HeightRequest="16" HorizontalOptions="End" 
+                                     Command="{Binding DummyCommand}"/>
+
+                        <Label  Padding="10" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="2" Text="PIN" />
+
+                        <ImageButton Grid.Row="2"  Grid.Column="1" Source="edit.png" Aspect="AspectFit" WidthRequest="16" HeightRequest="16" HorizontalOptions="End" 
+                                     Command="{Binding DummyCommand}"/>
+                    </Grid>
+                </Border>
+
+
+            </VerticalStackLayout>
+
+        </ScrollView >
+
+    </ContentPage.Content>
+</ContentPage>

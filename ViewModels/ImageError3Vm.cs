@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,13 +9,16 @@ using System.Threading.Tasks;
 
 namespace MauiApp3.ViewModels
 {
-    public partial class ImageError2Vm: BaseViewModel
+    public partial class ImageError3Vm: BaseViewModel
     {
-
-
-        public ImageError2Vm()
+        public ImageError3Vm()
         {
         }
 
+        [RelayCommand]
+        public void Dummy()
+        {
+
+        }
     }
 }

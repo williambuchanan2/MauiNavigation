@@ -47,20 +47,29 @@ namespace MauiApp3.ViewModels
         {
             NavigationUtil.Navigate<NewPage8>();
         }
+
         [RelayCommand]
         private void KeyboardProblemButtonPressed()
         {
             NavigationUtil.Navigate<NewPage9>();
         }
+
         [RelayCommand]
         private void NavToProblemButtonPressed()
         {
             AppShell.SwitchToMainShellItem();
         }
+
         [RelayCommand]
         private void ImageProblem2ButtonPressed()
         {
             NavigationUtil.Navigate<ImageError2>();
+        }
+
+        [RelayCommand]
+        private void ImageProblem3ButtonPressed()
+        {
+            NavigationUtil.Navigate<ImageError3>();
         }
 
 
