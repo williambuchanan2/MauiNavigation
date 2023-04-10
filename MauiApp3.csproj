@@ -49,6 +49,26 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\support\basehealth_logo.png" />
+	  <None Remove="Resources\Images\support\beyond_blue_logo.png" />
+	  <None Remove="Resources\Images\support\emergency_hotline_logo.png" />
+	  <None Remove="Resources\Images\support\headspace_logo.png" />
+	  <None Remove="Resources\Images\support\lifeline_logo.png" />
+	  <None Remove="Resources\Images\support\phone_icon_yellow.png" />
+	  <None Remove="Resources\Images\support\veterans_crisis_line_logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\support\basehealth_logo.png" />
+	  <MauiImage Include="Resources\Images\support\beyond_blue_logo.png" />
+	  <MauiImage Include="Resources\Images\support\emergency_hotline_logo.png" />
+	  <MauiImage Include="Resources\Images\support\headspace_logo.png" />
+	  <MauiImage Include="Resources\Images\support\lifeline_logo.png" />
+	  <MauiImage Include="Resources\Images\support\phone_icon_yellow.png" />
+	  <MauiImage Include="Resources\Images\support\veterans_crisis_line_logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="4.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
@@ -56,6 +76,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\ImageError2.xaml.cs">
+	    <DependentUpon>ImageError2.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\NewPage16.xaml.cs">
 	    <DependentUpon>NewPage16.xaml</DependentUpon>
 	  </Compile>
@@ -137,6 +160,9 @@
 	  <MauiXaml Update="Styles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ImageError2.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ImageError.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -159,6 +185,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\NewPage10.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ResourceErrorPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ScrollViewIssue.xaml">

@@ -26,4 +26,5 @@ public partial class TabG : ContentPage
         base.OnAppearing();
     }
 
+  
 }

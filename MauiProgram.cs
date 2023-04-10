@@ -32,7 +32,11 @@ public static class MauiProgram
         Routing.RegisterRoute(nameof(ScrollViewIssue), typeof(ScrollViewIssue));
 
 
-        builder.Services.AddTransient<Class1>();
+        builder.Services.AddTransient<ImageError2Vm>(); 
+        builder.Services.AddTransient<ImageError2>();
+        Routing.RegisterRoute(nameof(ImageError2), typeof(ImageError2));
+
+        builder.Services.AddTransient<Class1>(); 
         builder.Services.AddTransient<NewPage1>();
         Routing.RegisterRoute(nameof(NewPage1), typeof(NewPage1));
 

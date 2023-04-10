@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.Views.ImageError2"
+              xmlns:models="clr-namespace:MauiApp3"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+            Title="ImageError2">
+    <ScrollView>
+
+        <VerticalStackLayout VerticalOptions="StartAndExpand">
+
+            <Grid HorizontalOptions="Center" VerticalOptions="Center" ColumnSpacing="40" RowSpacing="40">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="AUTO"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0" FontSize="Default" TextColor="Black"
+                        HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                        Text="Or get in touch with one of the professional organisations below." />
+
+                <Frame Grid.Row="2" Grid.Column="0">
+                    <ImageButton HorizontalOptions="Center" VerticalOptions="End" Source="headspace_logo.png"/>
+                </Frame>
+
+                <Frame Grid.Row="2" Grid.Column="1">
+                    <ImageButton HorizontalOptions="Center" VerticalOptions="Center" Source="beyond_blue_logo.png" Aspect="AspectFit"/>
+                </Frame>
+
+                <Frame Grid.Row="3" Grid.Column="0">
+                    <ImageButton HorizontalOptions="Center" VerticalOptions="Center" Source="emergency_hotline_logo.png" Aspect="AspectFit" Margin="0,0,0,0"/>
+                </Frame>
+
+                <Frame Grid.Row="3" Grid.Column="1">
+                    <ImageButton HorizontalOptions="Center" VerticalOptions="Center" Source="lifeline_logo.png" Aspect="AspectFit" Margin="0,0,0,0"/>
+                </Frame>
+
+                <Frame Grid.Row="4" Grid.Column="1">
+                    <ImageButton HorizontalOptions="Center" VerticalOptions="Center" Source="veterans_crisis_line_logo.png" Aspect="AspectFit" Margin="0,0,0,0"/>
+                </Frame>
+
+                <Frame Grid.Row="4" Grid.Column="0">
+                    <ImageButton HorizontalOptions="Center" VerticalOptions="Center" Source="basehealth_logo.png" Aspect="AspectFit" Margin="0,0,0,0"/>
+                </Frame>
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView >
+</ContentPage>

@@ -57,8 +57,13 @@ namespace MauiApp3.ViewModels
         {
             AppShell.SwitchToMainShellItem();
         }
+        [RelayCommand]
+        private void ImageProblem2ButtonPressed()
+        {
+            NavigationUtil.Navigate<ImageError2>();
+        }
 
-        
+
 
     }
 }
