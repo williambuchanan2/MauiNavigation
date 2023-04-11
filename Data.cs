@@ -5,7 +5,7 @@ namespace MauiApp3
     internal class Data
     {
         private string _baseUrl = "https://redsixapidev.pdsglobal.com";
-        //private string _baseUrl = "http://192.168.1.5:7230";
+        //private string _baseUrl = "http://192.168.1.6:7230";
 
 
         public async Task<SocialFeedPayload> GetUserFeed()

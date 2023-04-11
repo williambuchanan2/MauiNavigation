@@ -72,6 +72,12 @@ namespace MauiApp3.ViewModels
             NavigationUtil.Navigate<ImageError3>();
         }
 
+        [RelayCommand]
+        private void ImageProblem4ButtonPressed()
+        {
+            NavigationUtil.Navigate<ImageError4>();
+        }
+
 
 
     }

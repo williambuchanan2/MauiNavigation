@@ -122,7 +122,7 @@
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate x:DataType="models:FeedAttachmentDTO">
                                             <Image Source="{Binding ImageData, Mode=OneWay, Converter={StaticResource ByteArrayToImage}}"  Aspect="AspectFill" Margin="10, 10"
-                                                          VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="300">
+                                                          VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
                                                 <Image.Shadow>
                                                     <Shadow Brush="Black"  Offset="2,2" Radius="4" Opacity="0.9"/>
                                                 </Image.Shadow>
