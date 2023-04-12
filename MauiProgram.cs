@@ -42,7 +42,11 @@ public static class MauiProgram
 
         builder.Services.AddTransient<ImageError4Vm>();
         builder.Services.AddTransient<ImageError4>();
-        Routing.RegisterRoute(nameof(ImageError4), typeof(ImageError4));
+        Routing.RegisterRoute(nameof(ImageError4), typeof(ImageError4)); 
+
+        builder.Services.AddTransient<BorderProblemVm>();
+        builder.Services.AddTransient<BorderProblemPage>();
+        Routing.RegisterRoute(nameof(BorderProblemPage), typeof(BorderProblemPage)); 
 
         builder.Services.AddTransient<Class1>(); 
         builder.Services.AddTransient<NewPage1>();

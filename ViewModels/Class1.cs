@@ -78,6 +78,12 @@ namespace MauiApp3.ViewModels
             NavigationUtil.Navigate<ImageError4>();
         }
 
+        [RelayCommand]
+        private void BorderProblemButtonPressed()
+        {
+            NavigationUtil.Navigate<BorderProblemPage>();
+        }
+
 
 
     }

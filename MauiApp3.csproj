@@ -77,6 +77,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\BorderProblemPage.xaml.cs">
+	    <DependentUpon>BorderProblemPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\ImageError4.xaml.cs">
 	    <DependentUpon>ImageError4.xaml</DependentUpon>
 	  </Compile>
@@ -165,6 +168,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Styles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\BorderProblemPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ImageError4.xaml">

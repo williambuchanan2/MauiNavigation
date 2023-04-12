@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.Views.BorderProblemPage"
+              xmlns:models="clr-namespace:MauiApp3"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+            Title="ImageError2">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout  Margin="10, 50, 10, 10">
+
+                <!-- Privacy header -->
+                <Grid Background="transparent" HeightRequest="35" VerticalOptions="Start" Padding="15,0,15,0" HorizontalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="privacysetting.png" Grid.Column="0"  Margin="0,0,15,0"/>
+                    <Label Text="Blurb"  Grid.Column="1"/>
+                </Grid>
+
+                <Border >
+                    <Grid  VerticalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Stealth mode -->
+                        <Label  Grid.Row="0" Grid.Column="0" HorizontalOptions="Start"  VerticalOptions="CenterAndExpand" Text="Switch Mode"
+                                />
+                        <Switch HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"  OnColor="Blue" ThumbColor="LightGray"
+                            Grid.Row="0" Grid.Column="1"  >
+                          
+                        </Switch>
+
+
+                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" 
+                               Text="Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah and more blah!" />
+
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
