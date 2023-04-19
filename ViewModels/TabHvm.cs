@@ -13,8 +13,8 @@ namespace MauiApp3.ViewModels
         [RelayCommand]
         private void NextButtonPressed()
         {
-            NavigationUtil.Navigate<NewPage8>();
-           // AppShell.SwitchToMainShellItem();
+           // NavigationUtil.Navigate<NewPage8>();
+            AppShell.SwitchToMainShellItem();
             //NavigationUtil.Navigate<NewPage4>();
         }
 

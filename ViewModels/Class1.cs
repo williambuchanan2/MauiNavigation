@@ -83,6 +83,11 @@ namespace MauiApp3.ViewModels
         {
             NavigationUtil.Navigate<BorderProblemPage>();
         }
+        [RelayCommand]
+        private void FlyoutButtonPressed()
+        {
+            AppShell.SwitchToMainShellItem();
+        }
 
 
 
