@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp3.Views.NewPage1"
              Title="NewPage1">
+    <ScrollView>
     <VerticalStackLayout>
         <Label 
             Text="Loading page"
@@ -25,4 +26,5 @@
         <Button Text="Image Problem 4" Command="{Binding ImageProblem4ButtonPressedCommand}" Margin="10" />
         <Button Text="Border Problem" Command="{Binding BorderProblemButtonPressedCommand}" Margin="10" />
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
