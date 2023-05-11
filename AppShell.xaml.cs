@@ -14,7 +14,7 @@ public partial class AppShell : Shell
 
     public static void SwitchToLoginShellItem()
     {
-        NavigationUtil.NavigateShell(nameof(TabHShellItem));
+        NavigationUtil.NavigateShell(nameof(LogoutShellItem));
     }
 
     public static void SwitchToResetShellItem()

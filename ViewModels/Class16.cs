@@ -11,9 +11,22 @@ namespace MauiApp3.ViewModels
     public partial class Class16: BaseViewModel
     {
         [RelayCommand]
-        private void NextButtonPressed()
+        private async void NextButtonPressed()
         {
-            NavigationUtil.Navigate<TabH>();
+            try
+            {
+                NavigationUtil.Navigate<TabH>();
+                //ShellItem shellItem = (ShellItem)Shell.Current.FindByName("TabHShellItem");
+                //Shell.Current.CurrentItem = shellItem;
+
+                // AppShell.SwitchToLoginShellItem();
+                //await Shell.Current.GoToAsync("//TabH");
+            }
+            catch (Exception ex) {
+                throw;
+            }
+
+
             //AppShell.SwitchToLoginShellItem();
         }
 

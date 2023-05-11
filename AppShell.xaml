@@ -50,8 +50,8 @@
         <ShellContent ContentTemplate="{DataTemplate views:NewPage1}" Route="NewPage1"/>
     </FlyoutItem>
 
-    <FlyoutItem Title="Logout" x:Name="TabHShellItem" >
-        <ShellContent ContentTemplate="{DataTemplate views:TabH}" Route="TabH" />
+    <FlyoutItem Title="Logout" x:Name="LogoutShellItem" >
+        <ShellContent ContentTemplate="{DataTemplate views:TabH}" Route="Logout" />
     </FlyoutItem>
 
 
