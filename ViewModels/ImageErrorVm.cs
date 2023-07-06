@@ -13,7 +13,7 @@ namespace MauiApp3.ViewModels
         [ObservableProperty]
         public bool _loading = true;
         [ObservableProperty]
-        public ObservableCollection<FeedContentDTO> _feed = new();
+        public ObservableCollection<FeedContentDto> _feed = new();
         [ObservableProperty]
         public ImageSource _profileImageThumbnail;
         [ObservableProperty]
@@ -45,7 +45,7 @@ namespace MauiApp3.ViewModels
                     CurrentMoodImage = ImageSource.FromFile("dotnet_bot.svg");// CurrentUserUtil.GetMoodStatusImage();
                     Data data = new Data();
                     var feedList = await data.GetUserFeed();
-                    Feed = new ObservableCollection<FeedContentDTO>(feedList.FeedContents);
+                    Feed = new ObservableCollection<FeedContentDto>(feedList.FeedContents);
                 }
                 finally
                 {

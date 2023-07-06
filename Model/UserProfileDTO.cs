@@ -1,6 +1,6 @@
 ﻿namespace MauiApp3
 {
-    public class UserProfileDTO
+    public class UserProfileDto
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
