@@ -7,6 +7,10 @@
     xmlns:views="clr-namespace:MauiApp3.Views"
     Shell.FlyoutBehavior="Disabled">
 
+    <Shell.TitleView>
+        <Image Source="edit.png" Aspect="AspectFit" HorizontalOptions="Start" VerticalOptions="Center" />
+    </Shell.TitleView>
+
 
     <!-- Initial load goes to LoadingPage, which then determines route to take -->
     <ShellItem FlyoutItemIsVisible="False" x:Name="LoadingPageShellItem" Title="Loading Page">
