@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp3.Views.NewPage1"
@@ -13,6 +13,7 @@
 
 
 
+        <Button Text="Keyboard Button Bug" Command="{Binding KeyboardButtonBugPressedCommand}"  Margin="10"/>
         <Button Text="Scenario 2" Command="{Binding Scenario2ButtonPressedCommand}"  Margin="10"/>
         <Button Text="Flyout Style problem" Command="{Binding FlyoutButtonPressedCommand}"  Margin="10"/>
         <Button Text="Image Error" Command="{Binding ImageErrorButtonPressedCommand}" Margin="10" />

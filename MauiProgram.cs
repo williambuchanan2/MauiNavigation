@@ -32,6 +32,10 @@ public static class MauiProgram
         Routing.RegisterRoute(nameof(ScrollViewIssue), typeof(ScrollViewIssue));
 
 
+        builder.Services.AddTransient<KeyboardButtonEventVm>();
+        builder.Services.AddTransient<KeyboardButtonEvent>();
+        Routing.RegisterRoute(nameof(KeyboardButtonEvent), typeof(KeyboardButtonEvent));
+
         builder.Services.AddTransient<ImageError2Vm>();
         builder.Services.AddTransient<ImageError2>();
         Routing.RegisterRoute(nameof(ImageError2), typeof(ImageError2));

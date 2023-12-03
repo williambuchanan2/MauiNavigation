@@ -4,13 +4,13 @@ namespace MauiApp3
 {
     internal class Data
     {
-        //private string _baseUrl = "https://redsixapidev.pdsglobal.com";
-        private string _baseUrl = "http://192.168.1.147:7230";
+        private string _baseUrl = "https://redsixapiuat.pdsglobal.com";
+        //private string _baseUrl = "http://192.168.1.11:7230";
 
 
         public async Task<SocialFeedPayload> GetUserFeed()
         {
-            var res = await GetAsync<BaseResponse<SocialFeedPayload>>(_baseUrl, "RedSix/GetUserFeed2");
+            var res = await GetAsync<PayloadWrapper<SocialFeedPayload>>(_baseUrl, "RedSix/GetUserFeed2");
             return res.Data;
         }
 

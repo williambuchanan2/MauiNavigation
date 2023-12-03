@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp3.Views.NewPage2"
-             Title="NewPage2">
+             x:Class="MauiApp3.Views.KeyboardButtonEvent"
+             Title="KeyboardButtonEvent">
 
-  
-            <VerticalStackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="*,Auto">
+
+        <VerticalStackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End">
             <Button Background="Green" ImageSource="send24x24.png"  HorizontalOptions="End" Text="HELLO" VerticalOptions="Start" Margin="5"   
                             Command="{Binding NextButtonPressedCommand}" />
             <Border StrokeThickness="1" StrokeShape="RoundRectangle 10,10,10,10" Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
@@ -13,11 +14,10 @@
                 <Editor Text="{Binding TestText}" Placeholder="Comment"  AutoSize="TextChanges" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" MaximumHeightRequest="80" Keyboard="Chat"
                         />
             </Border>
-                   <!--<Button Background="Green" ImageSource="send24x24.png" HeightRequest="250" HorizontalOptions="End" Text="HELLO2" VerticalOptions="Start" Margin="5"   
-                            Command="{Binding NextButtonPressedCommand}" />-->
-      </VerticalStackLayout>
-      
+            <Border x:Name="KeyboardFix" HeightRequest="300" Stroke="Transparent" BackgroundColor="Transparent"/>
+        </VerticalStackLayout>
 
+    </Grid>
     <!--<VerticalStackLayout>
         <Label 
             Text="Page 2"

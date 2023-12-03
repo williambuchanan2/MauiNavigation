@@ -17,6 +17,12 @@ namespace MauiApp3.ViewModels
             AppShell.SwitchToLoginShellItem();
             NavigationUtil.Navigate<NewPage2>();
         }
+        
+        [RelayCommand]
+        private void KeyboardButtonBugPressed()
+        {
+            NavigationUtil.Navigate<KeyboardButtonEvent>();
+        }
 
         [RelayCommand]
         private void Scenario2ButtonPressed()
