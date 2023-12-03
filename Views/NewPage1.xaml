@@ -13,6 +13,7 @@
 
 
 
+        <Button Text="Keyboard Space" Command="{Binding KeyboardSpacePressedCommand}"  Margin="10"/>
         <Button Text="Keyboard Button Bug" Command="{Binding KeyboardButtonBugPressedCommand}"  Margin="10"/>
         <Button Text="Scenario 2" Command="{Binding Scenario2ButtonPressedCommand}"  Margin="10"/>
         <Button Text="Flyout Style problem" Command="{Binding FlyoutButtonPressedCommand}"  Margin="10"/>

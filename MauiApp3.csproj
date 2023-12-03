@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
@@ -10,17 +10,21 @@
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
+
 		<!-- Display name -->
 		<ApplicationTitle>MauiApp3</ApplicationTitle>
+
 		<!-- App Identifier -->
-		<!--		<ApplicationId>com.companyname.mauiapp3</ApplicationId>-->
-		<ApplicationId>com.bravo6.redsix</ApplicationId>
-		<ApplicationIdGuid>ecdd3c1b-31bd-4276-97f8-9e4e79a51b1d</ApplicationIdGuid>
+<!--		<ApplicationId>com.companyname.mauiapp3</ApplicationId>-->
+			<ApplicationId>com.bravo6.redsix</ApplicationId>
+	<ApplicationIdGuid>ecdd3c1b-31bd-4276-97f8-9e4e79a51b1d</ApplicationIdGuid>
 		<CodesignKey>Apple Distribution: BRAVO6 PTY LTD (C7NC2J3AAU)</CodesignKey>
 		<CodesignProvision>RedSixProvisioningProfile</CodesignProvision>
+
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
+
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">33.0</SupportedOSPlatformVersion>
@@ -28,247 +32,260 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
-	<PropertyGroup Condition="'$([System.Environment]::MachineName)' == 'S01136' and $(TargetFramework.Contains('-ios'))">
-		<!--and '$(Configuration)' == 'Debug'">-->
+	
+	<PropertyGroup Condition="'$([System.Environment]::MachineName)' == 'S01136' and $(TargetFramework.Contains('-ios'))">		<!--and '$(Configuration)' == 'Debug'">-->
 		<CodesignKey>Apple Development: Created via API (W2H427JH35)</CodesignKey>
 		<CodesignProvision>RedSixProvisioning_S01120</CodesignProvision>
 	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
-		<CreatePackage>false</CreatePackage>
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
+
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+
 	<ItemGroup>
-		<None Remove="Resources\Images\edit.png" />
-		<None Remove="Resources\Images\support\basehealth_logo.png" />
-		<None Remove="Resources\Images\support\beyond_blue_logo.png" />
-		<None Remove="Resources\Images\support\emergency_hotline_logo.png" />
-		<None Remove="Resources\Images\support\headspace_logo.png" />
-		<None Remove="Resources\Images\support\lifeline_logo.png" />
-		<None Remove="Resources\Images\support\phone_icon_yellow.png" />
-		<None Remove="Resources\Images\support\veterans_crisis_line_logo.png" />
+	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\support\basehealth_logo.png" />
+	  <None Remove="Resources\Images\support\beyond_blue_logo.png" />
+	  <None Remove="Resources\Images\support\emergency_hotline_logo.png" />
+	  <None Remove="Resources\Images\support\headspace_logo.png" />
+	  <None Remove="Resources\Images\support\lifeline_logo.png" />
+	  <None Remove="Resources\Images\support\phone_icon_yellow.png" />
+	  <None Remove="Resources\Images\support\veterans_crisis_line_logo.png" />
 	</ItemGroup>
+
 	<ItemGroup>
-		<MauiImage Include="Resources\Images\support\basehealth_logo.png" />
-		<MauiImage Include="Resources\Images\support\beyond_blue_logo.png" />
-		<MauiImage Include="Resources\Images\support\emergency_hotline_logo.png" />
-		<MauiImage Include="Resources\Images\support\headspace_logo.png" />
-		<MauiImage Include="Resources\Images\support\lifeline_logo.png" />
-		<MauiImage Include="Resources\Images\support\phone_icon_yellow.png" />
-		<MauiImage Include="Resources\Images\support\veterans_crisis_line_logo.png" />
+	  <MauiImage Include="Resources\Images\support\basehealth_logo.png" />
+	  <MauiImage Include="Resources\Images\support\beyond_blue_logo.png" />
+	  <MauiImage Include="Resources\Images\support\emergency_hotline_logo.png" />
+	  <MauiImage Include="Resources\Images\support\headspace_logo.png" />
+	  <MauiImage Include="Resources\Images\support\lifeline_logo.png" />
+	  <MauiImage Include="Resources\Images\support\phone_icon_yellow.png" />
+	  <MauiImage Include="Resources\Images\support\veterans_crisis_line_logo.png" />
 	</ItemGroup>
+
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.3" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="4.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="RestSharp" Version="109.0.1" />
 	</ItemGroup>
+
 	<ItemGroup>
-		<Compile Update="Views\BorderProblemPage.xaml.cs">
-			<DependentUpon>BorderProblemPage.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\ImageError4.xaml.cs">
-			<DependentUpon>ImageError4.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\ImageError3.xaml.cs">
-			<DependentUpon>ImageError3.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\ImageError2.xaml.cs">
-			<DependentUpon>ImageError2.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage16.xaml.cs">
-			<DependentUpon>NewPage16.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage15.xaml.cs">
-			<DependentUpon>NewPage15.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage14.xaml.cs">
-			<DependentUpon>NewPage14.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage13.xaml.cs">
-			<DependentUpon>NewPage13.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage12.xaml.cs">
-			<DependentUpon>NewPage12.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage11.xaml.cs">
-			<DependentUpon>NewPage11.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage10.xaml.cs">
-			<DependentUpon>NewPage10.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\SettA.xaml.cs">
-			<DependentUpon>SettA.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\SettB.xaml.cs">
-			<DependentUpon>SettB.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\TabH.xaml.cs">
-			<DependentUpon>TabH.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\TabG.xaml.cs">
-			<DependentUpon>TabG.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\TabF.xaml.cs">
-			<DependentUpon>TabF.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\TabE.xaml.cs">
-			<DependentUpon>TabE.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\TabD.xaml.cs">
-			<DependentUpon>TabD.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\TabC.xaml.cs">
-			<DependentUpon>TabC.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\TabB.xaml.cs">
-			<DependentUpon>TabB.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\TabA.xaml.cs">
-			<DependentUpon>TabA.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage9.xaml.cs">
-			<DependentUpon>NewPage9.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage8.xaml.cs">
-			<DependentUpon>NewPage8.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage7.xaml.cs">
-			<DependentUpon>NewPage7.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage6.xaml.cs">
-			<DependentUpon>NewPage6.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage5.xaml.cs">
-			<DependentUpon>NewPage5.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage4.xaml.cs">
-			<DependentUpon>NewPage4.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage3.xaml.cs">
-			<DependentUpon>NewPage3.xaml</DependentUpon>
-		</Compile>
-		<Compile Update="Views\NewPage2.xaml.cs">
-			<DependentUpon>NewPage2.xaml</DependentUpon>
-		</Compile>
+	  <Compile Update="Views\BorderProblemPage.xaml.cs">
+	    <DependentUpon>BorderProblemPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ImageError4.xaml.cs">
+	    <DependentUpon>ImageError4.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ImageError3.xaml.cs">
+	    <DependentUpon>ImageError3.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ImageError2.xaml.cs">
+	    <DependentUpon>ImageError2.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage16.xaml.cs">
+	    <DependentUpon>NewPage16.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage15.xaml.cs">
+	    <DependentUpon>NewPage15.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage14.xaml.cs">
+	    <DependentUpon>NewPage14.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage13.xaml.cs">
+	    <DependentUpon>NewPage13.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage12.xaml.cs">
+	    <DependentUpon>NewPage12.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage11.xaml.cs">
+	    <DependentUpon>NewPage11.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage10.xaml.cs">
+	    <DependentUpon>NewPage10.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SettA.xaml.cs">
+	    <DependentUpon>SettA.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SettB.xaml.cs">
+	    <DependentUpon>SettB.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TabH.xaml.cs">
+	    <DependentUpon>TabH.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TabG.xaml.cs">
+	    <DependentUpon>TabG.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TabF.xaml.cs">
+	    <DependentUpon>TabF.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TabE.xaml.cs">
+	    <DependentUpon>TabE.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TabD.xaml.cs">
+	    <DependentUpon>TabD.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TabC.xaml.cs">
+	    <DependentUpon>TabC.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TabB.xaml.cs">
+	    <DependentUpon>TabB.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TabA.xaml.cs">
+	    <DependentUpon>TabA.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage9.xaml.cs">
+	    <DependentUpon>NewPage9.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage8.xaml.cs">
+	    <DependentUpon>NewPage8.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage7.xaml.cs">
+	    <DependentUpon>NewPage7.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage6.xaml.cs">
+	    <DependentUpon>NewPage6.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage5.xaml.cs">
+	    <DependentUpon>NewPage5.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage4.xaml.cs">
+	    <DependentUpon>NewPage4.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage3.xaml.cs">
+	    <DependentUpon>NewPage3.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NewPage2.xaml.cs">
+	    <DependentUpon>NewPage2.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
+
 	<ItemGroup>
-		<MauiXaml Update="Styles.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\BorderProblemPage.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\ImageError4.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\ImageError3.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\ImageError2.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\ImageError.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage16.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage15.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage14.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage13.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage12.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage11.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage10.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\ResourceErrorPage.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\ScrollViewIssue.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\SettA.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\SettB.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\TabG.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\TabH.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\TabF.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\TabE.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\TabD.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\TabC.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\TabB.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\TabA.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage9.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage8.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage7.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage6.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage5.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage4.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage3.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage2.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Views\NewPage1.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Views\NewPage2 %28copy%29.xaml">
-			<Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
+	  <MauiXaml Update="Styles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\BorderProblemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ImageError4.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ImageError3.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ImageError2.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ImageError.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage16.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage15.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage14.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage13.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage12.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage11.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage10.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ResourceErrorPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ScrollViewIssue.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettA.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettB.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TabG.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TabH.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TabF.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TabE.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TabD.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TabC.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TabB.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TabA.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage9.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage8.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage7.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage6.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage5.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage4.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage3.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage2.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Views\NewPage2 %28copy%29.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
+
 </Project>

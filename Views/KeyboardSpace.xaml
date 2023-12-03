@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.Views.KeyboardSpace"
+             Title="KeyboardButtonEvent">
+
+
+    <Grid Margin="10" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <HorizontalStackLayout Grid.Row="0" Padding="10" HorizontalOptions="Start">
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ViewProfileCommand}" CommandParameter="{Binding ChatUserAcountId}" />
+            </HorizontalStackLayout.GestureRecognizers>
+
+            <Line Margin="0" BackgroundColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource DarkBorder}}"
+						HeightRequest="1" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+            <Label Margin="10,0,10,0" HorizontalOptions="Start" Style="{StaticResource LabelPageSubHeader}" Text="{Binding ChatTitle}"
+						VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1">
+            <Line Margin="0" BackgroundColor="{StaticResource Gray300}" HeightRequest="1" HorizontalOptions="StartAndExpand"
+						VerticalOptions="Start" />
+            <Border x:Name="tapLabelBorder" IsVisible="{Binding IsNewChat}" HorizontalOptions="Fill" VerticalOptions="Start" Margin="0,30"
+						Style="{StaticResource TableSectionBorder}">
+
+                <Label x:Name="tapPersonIconLabel" Text="hghghhg" />
+            </Border>
+        </VerticalStackLayout>
+
+        <CollectionView x:Name="ChatView" Grid.Row="2" HorizontalOptions="FillAndExpand" ItemsSource="{Binding ChatMessages}"
+					VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Default" Rotation="180" RemainingItemsThreshold="2"
+					RemainingItemsThresholdReachedCommand="{Binding ConversationNextPageCommand}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate >
+
+                    <VerticalStackLayout Rotation="180">
+
+                        <Border Margin="0,2" Padding="10" HorizontalOptions="CenterAndExpand" Style="{StaticResource ChatMessageTimeStampHeader}" BackgroundColor="Transparent" IsVisible="{Binding IsGroupHeader}">
+                            <VerticalStackLayout HorizontalOptions="CenterAndExpand">
+                                <Label TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}" 
+                                           Text="{Binding TimeStamp}" Style="{StaticResource LabelFaded}" />
+                                <!--<BoxView HeightRequest="1" Color="Black" HorizontalOptions="CenterAndExpand"/>-->
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!--  Chat bubbles for messages  -->
+                        <Grid HorizontalOptions="Start" IsVisible="{Binding IsGroupHeader, Converter={StaticResource InvertedBoolConverter}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+
+
+                            <!-- Chat bubble content -->
+                            <Border Grid.Column="1" Background="{StaticResource DarkBorder}" HorizontalOptions="End"
+										StrokeShape="RoundRectangle 15,15,15,15" Padding="10" MaximumWidthRequest="{OnIdiom Phone=255, Tablet=300}">
+                                <!--WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type vm:RedSixBaseVm}}, Path=BubbleWidth}"-->
+
+                                <Label HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap" Text="{Binding ChatContent}"
+											TextColor="{StaticResource DarkModeText}" Padding="4,0,0,0" FontSize="{OnIdiom Tablet= Large}" />
+                                <Border.Triggers>
+                                    <DataTrigger Binding="{Binding IsCurrentUser}" TargetType="Border" Value="True">
+                                        <Setter Property="Grid.Column" Value="0" />
+                                        <Setter Property="Background" Value="{StaticResource PostLight}" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+                            </Border>
+                            <Grid.Triggers>
+                                <DataTrigger Binding="{Binding IsCurrentUser}" TargetType="Grid" Value="True">
+                                    <Setter Property="HorizontalOptions" Value="End" />
+                                </DataTrigger>
+                            </Grid.Triggers>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <VerticalStackLayout Grid.Row="4" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Margin="0,15,0,0">
+
+            <!--<Line HeightRequest="1" Margin="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="{StaticResource Gray400}" />-->
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5">
+                <Border StrokeThickness="1" StrokeShape="RoundRectangle 10,10,10,10" Padding="10" HorizontalOptions="FillAndExpand"
+					VerticalOptions="StartAndExpand"
+					Background="{AppThemeBinding Light={StaticResource PageBackgroundLight}, Dark={StaticResource PageBackground}}">
+                    <Editor Text="{Binding NewComment}" Placeholder="Comment" AutoSize="TextChanges" HorizontalOptions="FillAndExpand"
+						VerticalOptions="Fill" Keyboard="Chat">
+
+                    </Editor>
+                </Border>
+
+                <ImageButton Margin="10" Padding="10" HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource ListImageButton}" Aspect="Center"
+					Command="{Binding CommentButtonClickedCommand}" Source="edit.png">
+                </ImageButton>
+
+            </StackLayout>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>
