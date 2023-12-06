@@ -31,6 +31,10 @@ public static class MauiProgram
         builder.Services.AddTransient<ScrollViewIssue>();
         Routing.RegisterRoute(nameof(ScrollViewIssue), typeof(ScrollViewIssue));
 
+        
+        builder.Services.AddTransient<BottomScreenKBProblemVm>();
+        builder.Services.AddTransient<BottomScreenKBProblem>();
+        Routing.RegisterRoute(nameof(BottomScreenKBProblem), typeof(BottomScreenKBProblem));
 
         builder.Services.AddTransient<KeyboardSpaceVm>();
         builder.Services.AddTransient<KeyboardSpace>();

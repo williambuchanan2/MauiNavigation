@@ -71,6 +71,7 @@
 	  <None Remove="Resources\Images\support\lifeline_logo.png" />
 	  <None Remove="Resources\Images\support\phone_icon_yellow.png" />
 	  <None Remove="Resources\Images\support\veterans_crisis_line_logo.png" />
+	  <None Remove="Controls\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -286,6 +287,15 @@
 	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Views\NewPage2 %28copy%29.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Views\BorderProblemPage %28copy%29.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Controls\BorderProblemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Controls\" />
+	</ItemGroup>
 </Project>

@@ -19,6 +19,12 @@ namespace MauiApp3.ViewModels
         }
 
         [RelayCommand]
+        private void BottomKeyboard()
+        {
+            NavigationUtil.Navigate<BottomScreenKBProblem>();
+        }
+
+        [RelayCommand]
         private void KeyboardSpacePressed()
         {
             NavigationUtil.Navigate<KeyboardSpace>();
