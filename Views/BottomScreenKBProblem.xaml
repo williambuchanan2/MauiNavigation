@@ -18,7 +18,7 @@
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-                <HorizontalStackLayout Grid.Row="0" Padding="10" HorizontalOptions="Start">
+                <HorizontalStackLayout Padding="10" HorizontalOptions="Start">
                     <HorizontalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ViewProfileCommand}" CommandParameter="{Binding ChatUserAcountId}" />
                     </HorizontalStackLayout.GestureRecognizers>
@@ -30,7 +30,7 @@
                 </HorizontalStackLayout>
 
 
-                <VerticalStackLayout Grid.Row="1">
+                <VerticalStackLayout >
                     <Line Margin="0" BackgroundColor="{StaticResource Gray300}" HeightRequest="1" HorizontalOptions="StartAndExpand"
 						        VerticalOptions="Start" />
                     <Border x:Name="tapLabelBorder" IsVisible="{Binding IsNewChat}" HorizontalOptions="Fill" VerticalOptions="Start" Margin="0,30"
@@ -42,7 +42,7 @@
 
 
                 <!-- Feed Content Section -->
-                <CollectionView ItemsSource="{Binding Feed}" Grid.Row="1"
+                <CollectionView ItemsSource="{Binding Feed}" 
                     VerticalScrollBarVisibility="Default" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:FeedContentDto">
