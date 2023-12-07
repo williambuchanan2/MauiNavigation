@@ -10,111 +10,109 @@
 
     <ContentPage.Content>
 
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="700">
+        <Grid Margin="10" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
 
-                    <HorizontalStackLayout Padding="10" HorizontalOptions="Start">
-                        <HorizontalStackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ViewProfileCommand}" CommandParameter="{Binding ChatUserAcountId}" />
-                        </HorizontalStackLayout.GestureRecognizers>
+                <HorizontalStackLayout Grid.Row="0" Padding="10" HorizontalOptions="Start">
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ViewProfileCommand}" CommandParameter="{Binding ChatUserAcountId}" />
+                    </HorizontalStackLayout.GestureRecognizers>
 
-                        <Line Margin="0" BackgroundColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource DarkBorder}}"
+                    <Line Margin="0" BackgroundColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource DarkBorder}}"
 						HeightRequest="1" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
-                        <Label Margin="10,0,10,0" HorizontalOptions="Start"  Text="Title goes here"
+                    <Label Margin="10,0,10,0" HorizontalOptions="Start"  Text="Title goes here"
 						VerticalOptions="Center" />
-                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
 
 
-                    <VerticalStackLayout >
-                        <Line Margin="0" BackgroundColor="{StaticResource Gray300}" HeightRequest="1" HorizontalOptions="StartAndExpand"
+                <VerticalStackLayout Grid.Row="1">
+                    <Line Margin="0" BackgroundColor="{StaticResource Gray300}" HeightRequest="1" HorizontalOptions="StartAndExpand"
 						        VerticalOptions="Start" />
-                        <Border x:Name="tapLabelBorder" IsVisible="{Binding IsNewChat}" HorizontalOptions="Fill" VerticalOptions="Start" Margin="0,30"
+                    <Border x:Name="tapLabelBorder" IsVisible="{Binding IsNewChat}" HorizontalOptions="Fill" VerticalOptions="Start" Margin="0,30"
 						        >
 
-                            <Label x:Name="tapPersonIconLabel" Text="fhfhfgh" />
-                        </Border>
-                    </VerticalStackLayout>
-                </StackLayout>
-
-                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Label x:Name="tapPersonIconLabel" Text="fhfhfgh" />
+                    </Border>
+                </VerticalStackLayout>
 
 
-
-                    <!-- Feed Content Section -->
-                    <CollectionView ItemsSource="{Binding Feed}" 
+                <!-- Feed Content Section -->
+                <CollectionView ItemsSource="{Binding Feed}" Grid.Row="1"
                     VerticalScrollBarVisibility="Default" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="models:FeedContentDto">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:FeedContentDto">
 
-                                <Border Margin="5,0,5,0" Padding="5" BackgroundColor="{AppThemeBinding Light={StaticResource LightBorder}, Dark={StaticResource DarkBorder}}"
+                            <Border Margin="5,0,5,0" Padding="5" BackgroundColor="{AppThemeBinding Light={StaticResource LightBorder}, Dark={StaticResource DarkBorder}}"
                                         VerticalOptions="StartAndExpand">
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="15,15,15,15"/>
-                                    </Border.StrokeShape>
-                                    <StackLayout>
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="15,15,15,15"/>
+                                </Border.StrokeShape>
+                                <StackLayout>
 
-                                        <!-- Post header -->
-                                        <StackLayout Orientation="Horizontal" Padding="15, 10">
-                                            <Image  VerticalOptions="Center" Margin="0,0,0,0" 
+                                    <!-- Post header -->
+                                    <StackLayout Orientation="Horizontal" Padding="15, 10">
+                                        <Image  VerticalOptions="Center" Margin="0,0,0,0" 
                                                Source="{Binding UserProfile.ProfileImageThumbnail, Mode=OneWay, Converter={StaticResource ByteArrayToImage}}" WidthRequest="40" 
                                                HeightRequest="40" Aspect="AspectFill" HorizontalOptions="Start">
-                                                <Image.Clip>
-                                                    <EllipseGeometry RadiusX="18" RadiusY="18" Center="25,25" />
-                                                </Image.Clip>
-                                                <!--<Image.Shadow>
+                                            <Image.Clip>
+                                                <EllipseGeometry RadiusX="18" RadiusY="18" Center="25,25" />
+                                            </Image.Clip>
+                                            <!--<Image.Shadow>
                                           <Shadow Brush="Black" Offset="2,2" Radius="4" Opacity="0.9"/>
                                         </Image.Shadow>-->
-                                            </Image>
-                                            <StackLayout VerticalOptions="Center">
-                                                <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="16" TextColor="DarkGray" Margin="10, 0" >
-                                                    <Label.Text>
-                                                        <MultiBinding StringFormat="{}{0} {1}">
-                                                            <Binding Path="UserProfile.FirstName"/>
-                                                            <Binding Path="UserProfile.LastName"/>
-                                                        </MultiBinding>
-                                                    </Label.Text>
-                                                </Label>
-                                                <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="14" TextColor="DarkGray" Margin="10, 0" >
-                                                    <Label.Text>
-                                                        <MultiBinding StringFormat="{}{0} at {1}">
-                                                            <Binding Path="UserProfile.JobTitle"/>
-                                                            <Binding Path="UserProfile.CompanyName"/>
-                                                        </MultiBinding>
-                                                    </Label.Text>
-                                                </Label>
-                                            </StackLayout>
+                                        </Image>
+                                        <StackLayout VerticalOptions="Center">
+                                            <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="16" TextColor="DarkGray" Margin="10, 0" >
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="{}{0} {1}">
+                                                        <Binding Path="UserProfile.FirstName"/>
+                                                        <Binding Path="UserProfile.LastName"/>
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
+                                            <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="14" TextColor="DarkGray" Margin="10, 0" >
+                                                <Label.Text>
+                                                    <MultiBinding StringFormat="{}{0} at {1}">
+                                                        <Binding Path="UserProfile.JobTitle"/>
+                                                        <Binding Path="UserProfile.CompanyName"/>
+                                                    </MultiBinding>
+                                                </Label.Text>
+                                            </Label>
                                         </StackLayout>
-
-                                        <!-- Post Footer -->
-                                        <Grid Margin="15,10,15,5">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
-                                            <Label HorizontalOptions="Fill" Grid.Column="0" Style="{StaticResource Key=baseLabelStyle}" 
-                                                Text="Jon Doe and others like this" FontSize="12" TextColor="DarkGray"/>
-                                            <Label HorizontalOptions="End" Grid.Column="1" Style="{StaticResource Key=baseLabelStyle}" 
-                                                Text="10 comments" FontSize="12" TextColor="DarkGray"/>
-                                        </Grid>
-
-
                                     </StackLayout>
-                                </Border>
 
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                                    <!-- Post Footer -->
+                                    <Grid Margin="15,10,15,5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label HorizontalOptions="Fill" Grid.Column="0" Style="{StaticResource Key=baseLabelStyle}" 
+                                                Text="Jon Doe and others like this" FontSize="12" TextColor="DarkGray"/>
+                                        <Label HorizontalOptions="End" Grid.Column="1" Style="{StaticResource Key=baseLabelStyle}" 
+                                                Text="10 comments" FontSize="12" TextColor="DarkGray"/>
+                                    </Grid>
 
-                </StackLayout>
+
+                                </StackLayout>
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
 
 
-                <controls:CommentEditView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="End" Margin="0,15"
+            <controls:CommentEditView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"
 					IsVisible="{Binding IsNewChat, Converter={StaticResource InvertedBoolConverter}}" />
 
-            </StackLayout >
-        </StackLayout>
+        </Grid>
 
     </ContentPage.Content>
 </ContentPage>
