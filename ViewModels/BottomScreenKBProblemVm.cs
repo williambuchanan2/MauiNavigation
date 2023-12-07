@@ -46,8 +46,8 @@ namespace MauiApp3.ViewModels
                     ProfileImageThumbnail = ImageSource.FromFile("dotnet_bot.svg");// CurrentUserUtil.GetProfileImageThumbnail();
                     CurrentMoodImage = ImageSource.FromFile("dotnet_bot.svg");// CurrentUserUtil.GetMoodStatusImage();
                     Data data = new Data();
-                    var feedList = await data.GetUserFeed();
-                    Feed = new ObservableCollection<FeedContentDto>(feedList.FeedContents);
+                    //var feedList =  await data.GetUserFeed();
+                    Feed = GetData();//new ObservableCollection<FeedContentDto>(feedList.FeedContents);
                 }
                 finally
                 {
@@ -58,6 +58,20 @@ namespace MauiApp3.ViewModels
             {
                 throw;
             }
+        }
+
+        private ObservableCollection<FeedContentDto> GetData()
+        {
+            ObservableCollection<FeedContentDto> result = new();
+
+            for (int i=1; i<10;i++)
+            {
+                FeedContentDto dto = new();
+                dto.FeedContent = "Blah";
+                result.Add(dto);
+            }
+
+            return result;
         }
 
 
