@@ -67,7 +67,7 @@
                                         </Image.Shadow>-->
                                         </Image>
                                         <StackLayout VerticalOptions="Center">
-                                            <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="16" TextColor="DarkGray" Margin="10, 0" >
+                                            <Label FontSize="16" TextColor="DarkGray" Margin="10, 0" >
                                                 <Label.Text>
                                                     <MultiBinding StringFormat="{}{0} {1}">
                                                         <Binding Path="UserProfile.FirstName"/>
@@ -75,7 +75,7 @@
                                                     </MultiBinding>
                                                 </Label.Text>
                                             </Label>
-                                            <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="14" TextColor="DarkGray" Margin="10, 0" >
+                                            <Label  FontSize="14" TextColor="DarkGray" Margin="10, 0" >
                                                 <Label.Text>
                                                     <MultiBinding StringFormat="{}{0} at {1}">
                                                         <Binding Path="UserProfile.JobTitle"/>
@@ -92,9 +92,9 @@
                                             <ColumnDefinition/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Label HorizontalOptions="Fill" Grid.Column="0" Style="{StaticResource Key=baseLabelStyle}" 
+                                        <Label HorizontalOptions="Fill" Grid.Column="0" 
                                                 Text="Jon Doe and others like this" FontSize="12" TextColor="DarkGray"/>
-                                        <Label HorizontalOptions="End" Grid.Column="1" Style="{StaticResource Key=baseLabelStyle}" 
+                                        <Label HorizontalOptions="End" Grid.Column="1"  
                                                 Text="10 comments" FontSize="12" TextColor="DarkGray"/>
                                     </Grid>
 
