@@ -8,6 +8,10 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <toolkit:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="/Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
        
@@ -27,14 +31,17 @@
                 <ActivityIndicator Color="White" VerticalOptions="Center" HorizontalOptions="Center" x:Name="actInd" IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" IsEnabled="{Binding Loading}" />
             </Frame>
 
-            <!-- Top of page current user status section -->
-            <Border BackgroundColor="{AppThemeBinding Light={StaticResource LightBorder}, Dark={StaticResource DarkBorder}}" Margin="5" Padding="10" Grid.Row="0"
-                    HorizontalOptions="FillAndExpand">
+            <!-- Top of page current user status section 
+BackgroundColor="{AppThemeBinding Light={StaticResource LightBorder}, Dark={StaticResource DarkBorder}}"
+-->
+            <Border  
+                    Margin="5" Padding="10" Grid.Row="0"
+                    HorizontalOptions="Fill">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="15,15,15,15" />
                 </Border.StrokeShape>
 
-                <Grid VerticalOptions="Center" HorizontalOptions="FillAndExpand" x:Name="Header">
+                <Grid VerticalOptions="Center" HorizontalOptions="Fill" x:Name="Header">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
@@ -52,11 +59,11 @@
                         </Image.Shadow>
                     </Image>
 
-                    <Button Grid.Row="0" Grid.Column="1" Text="Post" Command="{Binding ShowPostSheetPressedCommand}" HorizontalOptions="CenterAndExpand" 
-                            VerticalOptions="Center" CornerRadius="15" Margin="7,0,0,0" FontSize="15" 
-                            BackgroundColor="{AppThemeBinding Light={StaticResource PostLight}, Dark={StaticResource AccentColor}}">
+                    <Button Grid.Row="0" Grid.Column="1" Text="Post" Command="{Binding ShowPostSheetPressedCommand}" HorizontalOptions="Center" 
+                            VerticalOptions="Center" CornerRadius="15" Margin="7,0,0,0" FontSize="15" >
+                            
                     </Button>
-
+<!-- BackgroundColor="{AppThemeBinding Light={StaticResource PostLight}, Dark={StaticResource AccentColor}}">-->
                     <Image Grid.Row="0" Grid.Column="3" VerticalOptions="Center" HorizontalOptions="End" Margin="12,0,0,0" Source="{Binding CurrentMoodImage}" WidthRequest="50" HeightRequest="50" 
                            Aspect="AspectFit">
                         <Image.Clip>
@@ -70,12 +77,12 @@
 
             <!-- Feed Content Section -->
             <CollectionView ItemsSource="{Binding Feed}" Grid.Row="1"
-                    VerticalScrollBarVisibility="Default" VerticalOptions="Fill" HorizontalOptions="FillAndExpand">
+                    VerticalScrollBarVisibility="Default" VerticalOptions="Fill" HorizontalOptions="Fill">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:FeedContentDto">
 
                         <Border Margin="5,0,5,0" Padding="5" BackgroundColor="{AppThemeBinding Light={StaticResource LightBorder}, Dark={StaticResource DarkBorder}}"
-                                        VerticalOptions="StartAndExpand">
+                                        VerticalOptions="Start">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="15,15,15,15"/>
                             </Border.StrokeShape>
@@ -94,7 +101,7 @@
                                         </Image.Shadow>-->
                                     </Image>
                                     <StackLayout VerticalOptions="Center">
-                                        <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="16" TextColor="DarkGray" Margin="10, 0" >
+                                        <Label FontSize="16" TextColor="DarkGray" Margin="10, 0" >
                                             <Label.Text>
                                                 <MultiBinding StringFormat="{}{0} {1}">
                                                     <Binding Path="UserProfile.FirstName"/>
@@ -102,7 +109,7 @@
                                                 </MultiBinding>
                                             </Label.Text>
                                         </Label>
-                                        <Label Style="{StaticResource Key=baseLabelStyle}" FontSize="14" TextColor="DarkGray" Margin="10, 0" >
+                                        <Label FontSize="14" TextColor="DarkGray" Margin="10, 0" >
                                             <Label.Text>
                                                 <MultiBinding StringFormat="{}{0} at {1}">
                                                     <Binding Path="UserProfile.JobTitle"/>
@@ -115,14 +122,14 @@
 
 
                                 <!-- Post Content -->
-                                <Label Style="{StaticResource Key=baseLabelStyle}"
+                                <Label 
                                             Text="{Binding FeedContent}" FontSize="16" FontAttributes="Bold" Margin="20, 10"/>
 
-                                <CollectionView x:Name="FeedAttachmentListView" ItemsSource="{Binding FeedAttachments}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <CollectionView x:Name="FeedAttachmentListView" ItemsSource="{Binding FeedAttachments}" VerticalOptions="Fill" HorizontalOptions="Fill">
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate x:DataType="models:FeedAttachmentDto">
                                             <Image Source="{Binding ImageData, Mode=OneWay, Converter={StaticResource ByteArrayToImage}}"  Aspect="AspectFill" Margin="10, 10"
-                                                          VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
+                                                          VerticalOptions="Fill" HorizontalOptions="Center">
                                                 <Image.Shadow>
                                                     <Shadow Brush="Black"  Offset="2,2" Radius="4" Opacity="0.9"/>
                                                 </Image.Shadow>
@@ -138,9 +145,9 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Label HorizontalOptions="Fill" Grid.Column="0" Style="{StaticResource Key=baseLabelStyle}" 
+                                    <Label HorizontalOptions="Fill" Grid.Column="0"  
                                                 Text="Jon Doe and others like this" FontSize="12" TextColor="DarkGray"/>
-                                    <Label HorizontalOptions="End" Grid.Column="1" Style="{StaticResource Key=baseLabelStyle}" 
+                                    <Label HorizontalOptions="End" Grid.Column="1"  
                                                 Text="10 comments" FontSize="12" TextColor="DarkGray"/>
                                 </Grid>
 
