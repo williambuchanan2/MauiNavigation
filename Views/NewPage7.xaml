@@ -5,14 +5,11 @@
       x:Class="MauiApp3.Views.NewPage7"
              Title="NewPage7">
 
-    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="MainContainer">
+    <ScrollView HorizontalOptions="Fill" VerticalOptions="Fill" x:Name="MainContainer">
 
 
-        <VerticalStackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
-            <Label 
-            Text="Page 7 - Create Account"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <VerticalStackLayout VerticalOptions="Start" HorizontalOptions="Fill" Margin="10">
+            <Label Text="Page 7 - Create Account" VerticalOptions="Center"  HorizontalOptions="Center" />
             <Button Text="Next" Command="{Binding NextButtonPressedCommand}" />
 
             <Border BackgroundColor="{StaticResource Gray300}" HeightRequest="1" WidthRequest="140" Margin="40,5,40,5" HorizontalOptions="Center" VerticalOptions="Start"/>
@@ -38,7 +35,7 @@
 
 
                     <Button  Grid.Row="2" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" Text="Add Photos" 
-                                  Style="{StaticResource linkButtonLight}" Command="{Binding SelectPhotoPressedCommand}" />
+                                  Command="{Binding SelectPhotoPressedCommand}" />
                     <ImageButton Grid.Row="2" Grid.Column="1" Source="img.png" WidthRequest="36" HeightRequest="36"  VerticalOptions="Center"
                                           HorizontalOptions="End"  Command="{Binding SelectPhotoPressedCommand}"/>
                     <BoxView Grid.Row="3" Grid.Column="0"  Grid.ColumnSpan="2"  HeightRequest="1" 
@@ -48,13 +45,13 @@
             </Border>
 
             <!-- Create Post selected images -->
-            <Border StrokeThickness="1" StrokeShape="RoundRectangle 10,10,10,10" Padding="10" VerticalOptions="EndAndExpand" MinimumHeightRequest="1000" HorizontalOptions="FillAndExpand">
+            <Border StrokeThickness="1" StrokeShape="RoundRectangle 10,10,10,10" Padding="10" VerticalOptions="End" HorizontalOptions="Fill">
 
-                <CollectionView ItemsSource="{Binding NewFeedImages}"  VerticalOptions="FillAndExpand"  MinimumHeightRequest="1000" HorizontalOptions="FillAndExpand">
+                <CollectionView ItemsSource="{Binding NewFeedImages}"  VerticalOptions="Fill" HorizontalOptions="Fill">
                     <CollectionView.ItemTemplate>
 
                         <DataTemplate x:DataType="models:FeedAttachmentDTO">
-                            <VerticalStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" MinimumHeightRequest="1000">
+                            <VerticalStackLayout VerticalOptions="Fill" HorizontalOptions="Fill">
                                 <Image Source="{Binding ImageData}"  Aspect="AspectFill" Margin="10, 0"
                                                            HorizontalOptions="Center" WidthRequest="370" HeightRequest="400" />
                                 <HorizontalStackLayout>

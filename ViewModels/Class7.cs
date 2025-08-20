@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MauiApp3.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace MauiApp3.ViewModels
 {
@@ -16,17 +17,27 @@ namespace MauiApp3.ViewModels
         public ImageSource ImageData { get; set; }
         public string FileType { get; set; }
     }
-    
-    
-    public partial class Class7: BaseViewModel
+
+
+    public partial class Class7 : BaseViewModel
     {
         [ObservableProperty]
-        public List<FeedAttachmentDTO> _newFeedImages;
+        public ObservableCollection<FeedAttachmentDTO> _newFeedImages;
 
         [RelayCommand]
         private void NextButtonPressed()
         {
             NavigationUtil.Navigate<NewPage8>();
+        }
+
+        public override void NavigatedTo(object sender, NavigatedToEventArgs e)
+        {
+            base.NavigatedTo(sender, e);
+
+            ImageSource img = ImageSource.FromFile("dotnet_bot.svg");
+            FeedAttachmentDTO newFeedImage = new FeedAttachmentDTO() { ImageData = img };
+            _newFeedImages.Add(newFeedImage);
+
         }
 
         [RelayCommand]
@@ -36,7 +47,7 @@ namespace MauiApp3.ViewModels
             {
                 ImageSource img = ImageSource.FromFile("dotnet_bot.svg");
                 if (NewFeedImages == null)
-                    NewFeedImages = new List<FeedAttachmentDTO>();
+                NewFeedImages = new ObservableCollection<FeedAttachmentDTO>();
 
                 //foreach (CameraResult camResult in imagesData)
                 {
@@ -46,7 +57,7 @@ namespace MauiApp3.ViewModels
             }
             catch (Exception ex)
             {
-               // AppExceptionHandler.HandleException(ex);
+                // AppExceptionHandler.HandleException(ex);
             }
         }
 
